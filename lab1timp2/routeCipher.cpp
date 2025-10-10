@@ -1,12 +1,25 @@
 #include "routeCipher.h"
 #include <algorithm>
+#include <cctype>
+#include <locale>
 
 routeCipher::routeCipher(int cols) : columns(cols) {}
+
+std::wstring toUpper(const std::wstring& text) {
+    std::wstring result = text;
+    std::locale loc("ru_RU.UTF-8");
+    for (wchar_t& c : result) {
+        c = std::toupper(c, loc);
+    }
+    return result;
+}
 
 std::wstring routeCipher::prepareText(const std::wstring& text)
 {
     std::wstring result;
-    for (wchar_t c : text) {
+    std::wstring upperText = toUpper(text); // Сначала переводим в верхний регистр
+    
+    for (wchar_t c : upperText) {
         if (c != L' ') {
             result += c;
         }
