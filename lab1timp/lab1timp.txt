@@ -1,1 +1,1 @@
-Debug/modAlphaCipher.cpp.o Debug/main.cpp.o
+Debug/main.cpp.o Debug/modAlphaCipher.cpp.o
